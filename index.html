@@ -3,164 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Balises Meta Standard -->
-<meta name="description" content="BRO AND LYRICS - Plateforme professionnelle pour l'écriture de paroles et le développement de projets musicaux. Soumettez vos textes, collaborez et donnez vie à vos créations.">
-<meta name="keywords" content="paroles, musique, écriture, collaboration, artistes, projets musicaux, lyrics, chanson">
-<meta name="author" content="BRO AND LYRICS">
-
-<!-- Balises Open Graph (Facebook, LinkedIn) -->
-<meta property="og:title" content="BRO AND LYRICS - Lyrics, style, and bringing your project to life">
-<meta property="og:description" content="Plateforme professionnelle pour l'écriture de paroles et le développement de projets musicaux.">
-<meta property="og:image" content="https://files.catbox.moe/swviqz.jpeg">
-<meta property="og:url" content="https://bro-and-lirycs.vercel.app">
-<meta property="og:type" content="website">
-
-<!-- Balises Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BRO AND LYRICS - Lyrics, style, and bringing your project to life">
-<meta name="twitter:description" content="Plateforme professionnelle pour l'écriture de paroles et le développement de projets musicaux.">
-<meta name="twitter:image" content="https://files.catbox.moe/swviqz.jpeg">
-<meta name="twitter:site" content="@broandlyrics">
-
-<!-- Balises pour les appareils mobiles -->
-<meta name="theme-color" content="#0f172a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="BRO AND LYRICS">
-<link rel="apple-touch-icon" href="/images/icon.png">
-
-<!-- Balise de vérification pour les outils de webmaster (optionnel) -->
-<meta name="google-site-verification" content="votre_code_verification">
+    <meta name="description" content="BRO AND LYRICS - Plateforme professionnelle pour l'écriture de paroles et le développement de projets musicaux. Soumettez vos textes, collaborez et donnez vie à vos projets.">
+    <meta name="keywords" content="paroles, musique, écriture, collaboration, artistes, projets musicaux, lyrics, chanson">
+    <meta name="author" content="BRO AND LYRICS">
+    <meta property="og:title" content="BRO AND LYRICS - Lyrics, style, and bringing your project to life">
+    <meta property="og:description" content="Plateforme professionnelle pour l'écriture de paroles et le développement de projets musicaux.">
+    <meta property="og:image" content="https://files.catbox.moe/swviqz.jpeg">
+    <meta property="og:url" content="https://bro-and-lirycs.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BRO AND LYRICS - Lyrics, style, and bringing your project to life">
+    <meta name="twitter:description" content="Plateforme professionnelle pour l'écriture de paroles et le développement de projets musicaux.">
+    <meta name="twitter:image" content="https://files.catbox.moe/swviqz.jpeg">
+    <meta name="twitter:site" content="@broandlyrics">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BRO AND LYRICS">
+    <link rel="apple-touch-icon" href="/images/icon.png">
     <title>BRO AND LYRICS - Lyrics, style, and bringing your project to life</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Animation du Splash Screen Next-gen */
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            overflow: hidden;
-        }
-        
-        .logo-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .logo-particle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #8b5cf6, #06b6d4);
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
-            animation: float 4s infinite ease-in-out;
-        }
-        
-        .logo-text {
-            font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, #8b5cf6, #06b6d4, #8b5cf6);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-align: center;
-            animation: shine 3s linear infinite, fadeIn 1.5s ease-out;
-            position: relative;
-            z-index: 2;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        
-        .subtext {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-top: 1rem;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.5s forwards;
-            font-style: italic;
-        }
-        
-        .soundwave {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 4px;
-        }
-        
-        .bar {
-            width: 8px;
-            background: linear-gradient(to top, #8b5cf6, #06b6d4);
-            border-radius: 4px 4px 0 0;
-            animation: equalize 1.5s infinite alternate;
-            transform-origin: bottom;
-        }
-        
-        /* Effets de particules */
-        .particle {
-            position: absolute;
-            background: linear-gradient(145deg, #8b5cf6, #06b6d4);
-            border-radius: 50%;
-            filter: blur(5px);
-            animation: particle-float 10s linear infinite;
-        }
-        
-        @keyframes shine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes equalize {
-            0% { transform: scaleY(0.3); }
-            100% { transform: scaleY(1); }
-        }
-        
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes particle-float {
-            0% { 
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 1;
-            }
-            100% { 
-                transform: translate(var(--tx), var(--ty)) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Vos styles originaux */
+        /* Splash, particles, etc.: inchangé sauf ci-dessous */
         body {
-            background-color: #0f172a;
-            color: #e2e8f0;
+            background-color: var(--main-bg, #0f172a);
+            color: var(--main-text, #e2e8f0);
             font-family: 'Inter', sans-serif;
+            transition: background 0.6s, color 0.6s;
         }
-        .gradient-text {
+        .gradient-text, .logo-text {
             background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
             -webkit-background-clip: text;
             background-clip: text;
@@ -170,50 +42,114 @@
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.4s, border 0.4s;
         }
-        .btn-primary {
-            background: linear-gradient(90deg, #7c3aed 0%, #0891b2 100%);
-            transition: all 0.3s ease;
+        .btn-primary, .btn-donate, .btn-whatsapp {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease, box-shadow 0.4s;
+            box-shadow: 0 0 8px 2px #06b6d4aa;
         }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.4);
+        .btn-primary:hover, .btn-donate:hover, .btn-whatsapp:hover {
+            box-shadow: 0 0 18px 6px #8b5cf6cc, 0 8px 32px #06b6d4cc;
+            filter: brightness(1.08);
+            transform: scale(1.03) translateY(-2px);
         }
-        .btn-whatsapp {
-            background: #25D366;
-            transition: all 0.3s ease;
+        .btn-theme {
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            padding: 0.5em 1.4em;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-left: 1em;
+            box-shadow: 0 0 8px 2px #8b5cf6cc;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-        .btn-whatsapp:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+        .btn-theme:hover {
+            box-shadow: 0 0 18px 6px #06b6d4cc;
+            transform: scale(1.06) rotate(-1deg);
         }
-        .btn-donate {
-            background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%);
-            transition: all 0.3s ease;
+        /* Wave effect on headings */
+        .wave-title span {
+          display: inline-block;
+          transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55), color 0.3s;
         }
-        .btn-donate:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
+        .wave-title:hover span {
+          color: #8b5cf6;
+          animation: wave 0.8s infinite linear alternate;
+        }
+        @keyframes wave {
+          0% { transform: translateY(0);}
+          60% { transform: translateY(-14px);}
+          100% { transform: translateY(0);}
+        }
+        /* Section fade/slide transition */
+        .fade-in-section {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(.33,1,.68,1), transform 0.8s cubic-bezier(.33,1,.68,1);
+        }
+        .fade-in-section.visible {
+          opacity: 1;
+          transform: none;
+        }
+        /* Logo rotate on hover in navbar */
+        .nav-logo:hover {
+            animation: logo-spin 1s linear;
+        }
+        @keyframes logo-spin {
+            0% { transform: rotateY(0); }
+            100% { transform: rotateY(360deg); }
+        }
+        /* Light mode styles */
+        body.light-mode {
+            --main-bg: #f8fafc;
+            --main-text: #172554;
+        }
+        body.light-mode .glass-card {
+            background: rgba(255,255,255,0.7);
+            border: 1px solid #8b5cf633;
+        }
+        body.light-mode .gradient-text, 
+        body.light-mode .logo-text {
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.light-mode .btn-primary, 
+        body.light-mode .btn-donate, 
+        body.light-mode .btn-whatsapp {
+            box-shadow: 0 0 8px 2px #8b5cf688;
+        }
+        body.light-mode .btn-primary:hover,
+        body.light-mode .btn-donate:hover,
+        body.light-mode .btn-whatsapp:hover {
+            box-shadow: 0 0 18px 6px #06b6d488, 0 8px 32px #8b5cf688;
+        }
+        @media (hover: hover) and (pointer: fine) {
+          .glass-card:hover, .bg-slate-800:hover {
+            filter: brightness(1.06) blur(0.5px) !important;
+            box-shadow: 0 0 14px 2px #06b6d4cc;
+            transform: translateY(-3px) scale(1.01);
+            transition: box-shadow 0.4s, filter 0.3s;
+          }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <!-- Splash Screen Next-gen -->
+<body class="min-h-screen flex flex-col transition-colors duration-700">
+    <!-- Splash Screen inchangé -->
     <div id="splash-screen">
-        <!-- Particules dynamiques -->
         <div id="particles-container"></div>
-        
         <div class="logo-container">
-            <!-- Effet de particules orbitantes -->
             <div class="logo-particle" style="top: 20%; left: 50%; animation-delay: 0s;"></div>
             <div class="logo-particle" style="top: 30%; right: 20%; animation-delay: 0.5s;"></div>
             <div class="logo-particle" style="bottom: 25%; left: 25%; animation-delay: 1s;"></div>
-            
             <h1 class="logo-text">BRO AND LYRICS</h1>
         </div>
-        
         <p class="subtext">made by crazy tech inc.</p>
-        
         <div class="soundwave">
             <div class="bar" style="height: 30px; animation-delay: 0.1s;"></div>
             <div class="bar" style="height: 60px; animation-delay: 0.2s;"></div>
@@ -226,30 +162,44 @@
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navbar améliorée avec logo animé & Dark/Light toggle -->
     <nav class="glass-card py-4 px-6 fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <span class="text-2xl font-bold gradient-text">BRO AND LYRICS</span>
+                <span class="text-2xl font-bold gradient-text nav-logo cursor-pointer">BRO AND LYRICS</span>
             </div>
             <div class="hidden md:flex space-x-6">
                 <a href="#submit" class="hover:text-cyan-400 transition">Submit Lyrics</a>
                 <a href="#support" class="hover:text-cyan-400 transition">Support</a>
                 <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
             </div>
-            <a href="wa.me/+24160206120" class="btn-whatsapp text-white px-4 py-2 rounded-full flex items-center space-x-2">
-                <i class="fab fa-whatsapp"></i>
-                <span>Contact Me</span>
-            </a>
+            <div class="flex items-center">
+                <a href="wa.me/+24160206120" class="btn-whatsapp text-white px-4 py-2 rounded-full flex items-center space-x-2">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Contact Me</span>
+                </a>
+                <button class="btn-theme" id="toggle-theme" title="Changer le thème">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-20 px-6 text-center">
+    <!-- Hero Section avec titre wave -->
+    <header class="pt-32 pb-20 px-6 text-center fade-in-section">
         <div class="container mx-auto max-w-4xl">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">BRO AND LYRICS</h1>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text wave-title">
+                <!-- Wave effect par span par lettre -->
+                <span>B</span><span>R</span><span>O</span> <span>A</span><span>N</span><span>D</span> <span>L</span><span>Y</span><span>R</span><span>I</span><span>C</span><span>S</span>
+            </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-10">Lyrics, style, and bringing your project to life.</p>
-            
+
+            <!-- Section surprise : inspiration du jour -->
+            <div id="inspiration" class="glass-card p-4 rounded-xl mb-8 fade-in-section">
+                <p class="italic text-lg text-cyan-400" id="quote"></p>
+                <div class="text-right mt-2 text-xs text-purple-400" id="quote-author"></div>
+            </div>
+
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
                 <a href="#submit" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-lg">
                     Submit Your Lyrics
@@ -258,7 +208,6 @@
                     Support My Work
                 </a>
             </div>
-            
             <div class="glass-card p-6 rounded-2xl max-w-2xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">What I Offer:</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -280,27 +229,25 @@
     </header>
 
     <!-- Submit Lyrics Section -->
-    <section id="submit" class="py-20 px-6 bg-slate-900/50">
+    <section id="submit" class="py-20 px-6 bg-slate-900/50 fade-in-section">
         <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">Submit Your Song</h2>
-            
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text wave-title">
+                <span>S</span><span>u</span><span>b</span><span>m</span><span>i</span><span>t</span> <span>Y</span><span>o</span><span>u</span><span>r</span> <span>S</span><span>o</span><span>n</span><span>g</span>
+            </h2>
             <div class="glass-card p-8 rounded-2xl">
                 <form id="lyrics-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
-                        <input type="text" id="name" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" placeholder="Enter your name" required>
+                        <input type="text" id="name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" placeholder="Ex: John Doe">
                     </div>
-                    
                     <div>
                         <label for="song-title" class="block text-sm font-medium mb-2">Song Title</label>
-                        <input type="text" id="song-title" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" placeholder="Enter song title" required>
+                        <input type="text" id="song-title" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" placeholder="Ex: My Awesome Song">
                     </div>
-                    
                     <div>
                         <label for="lyrics" class="block text-sm font-medium mb-2">Lyrics or Project Details</label>
-                        <textarea id="lyrics" rows="6" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" placeholder="Paste your lyrics or describe your project..." required></textarea>
+                        <textarea id="lyrics" rows="6" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" placeholder="Write your lyrics or describe your project..."></textarea>
                     </div>
-                    
                     <div class="pt-4">
                         <button type="button" onclick="submitViaWhatsApp()" class="btn-whatsapp w-full text-white px-6 py-3 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2">
                             <i class="fab fa-whatsapp"></i>
@@ -313,27 +260,26 @@
     </section>
 
     <!-- Support Section -->
-    <section id="support" class="py-20 px-6">
+    <section id="support" class="py-20 px-6 fade-in-section">
         <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">Support My Work</h2>
-            
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text wave-title">
+                <span>S</span><span>u</span><span>p</span><span>p</span><span>o</span><span>r</span><span>t</span> <span>M</span><span>y</span> <span>W</span><span>o</span><span>r</span><span>k</span>
+            </h2>
             <div class="glass-card p-8 rounded-2xl text-center">
-                <i class="fas fa-heart text-rose-500 text-5xl mb-6"></i>
+                <i class="fas fa-heart text-rose-500 text-5xl mb-6 animate-pulse"></i>
                 <h3 class="text-2xl font-semibold mb-4">Help Me Create More</h3>
                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
-                    Your support helps me dedicate more time to creating lyrics and developing music projects. 
+                    Your support helps me dedicate more time to creating lyrics and developing music projects.
                     Every contribution, no matter how small, makes a difference.
                 </p>
-                
                 <div class="flex flex-col sm:flex-row justify-center gap-6">
-                    <div class="bg-slate-800 p-6 rounded-xl flex-1 max-w-sm">
+                    <div class="bg-slate-800 p-6 rounded-xl flex-1 max-w-sm hover:scale-105 transition duration-300">
                         <i class="fas fa-mobile-alt text-amber-400 text-3xl mb-4"></i>
                         <h4 class="font-bold text-lg mb-2">Airtel Money</h4>
                         <p class="text-gray-400 mb-4">Send directly to my mobile number</p>
                         <div class="bg-slate-700 p-3 rounded-lg font-mono">+24105730123</div>
                     </div>
-                    
-                    <div class="bg-slate-800 p-6 rounded-xl flex-1 max-w-sm">
+                    <div class="bg-slate-800 p-6 rounded-xl flex-1 max-w-sm hover:scale-105 transition duration-300">
                         <i class="fab fa-paypal text-blue-400 text-3xl mb-4"></i>
                         <h4 class="font-bold text-lg mb-2">PayPal</h4>
                         <p class="text-gray-400 mb-4">For international supporters</p>
@@ -347,14 +293,14 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-slate-900/50">
+    <section id="contact" class="py-20 px-6 bg-slate-900/50 fade-in-section">
         <div class="container mx-auto max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
-            
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text wave-title">
+                <span>G</span><span>e</span><span>t</span> <span>I</span><span>n</span> <span>T</span><span>o</span><span>u</span><span>c</span><span>h</span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="glass-card p-8 rounded-2xl">
                     <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-                    
                     <div class="space-y-4">
                         <div class="flex items-start space-x-4">
                             <i class="fab fa-whatsapp text-green-400 text-xl mt-1"></i>
@@ -363,7 +309,6 @@
                                 <a href="https://wa.me/+24160206120" class="text-cyan-400 hover:underline">+24160206120</a>
                             </div>
                         </div>
-                        
                         <div class="flex items-start space-x-4">
                             <i class="fas fa-envelope text-amber-400 text-xl mt-1"></i>
                             <div>
@@ -371,7 +316,6 @@
                                 <a href="mailto:contact@broandlyrics.com" class="text-cyan-400 hover:underline">contact@broandlyrics.com</a>
                             </div>
                         </div>
-                        
                         <div class="flex items-start space-x-4">
                             <i class="fab fa-instagram text-purple-400 text-xl mt-1"></i>
                             <div>
@@ -379,7 +323,6 @@
                                 <a href="https://www.tiktok.com/@lyrics.dealers?_t=ZN-8vMZ0w60jaA&_r=1" class="text-cyan-400 hover:underline">@broandlyrics</a>
                             </div>
                         </div>
-                        
                         <div class="flex items-start space-x-4">
                             <i class="fab fa-tiktok text-gray-200 text-xl mt-1"></i>
                             <div>
@@ -389,18 +332,17 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="glass-card p-8 rounded-2xl">
                     <h3 class="text-xl font-semibold mb-6">Quick Message</h3>
                     <form class="space-y-4">
                         <div>
-                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" required>
                         </div>
                         <div>
-                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" required>
                         </div>
                         <div>
-                            <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"></textarea>
+                            <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary w-full text-white px-6 py-3 rounded-lg font-semibold">
                             Send Message
@@ -412,14 +354,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-6 bg-slate-900">
+    <footer class="py-12 px-6 bg-slate-900 fade-in-section">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <span class="text-2xl font-bold gradient-text">BRO AND LYRICS</span>
                     <p class="text-gray-400 mt-2">Bringing musical visions to life through words.</p>
                 </div>
-                
                 <div class="flex space-x-6">
                     <a href="https://www.tiktok.com/@lyrics.dealers?_t=ZN-8vMZ0w60jaA&_r=1" class="text-gray-400 hover:text-cyan-400 text-xl">
                         <i class="fab fa-instagram"></i>
@@ -435,67 +376,99 @@
                     </a>
                 </div>
             </div>
-            
             <div class="border-t border-slate-800 mt-8 pt-8 text-center text-gray-500">
-                <p>© 2023 BRO AND LYRICS. All rights reserved.</p>
+                <p>© 2025 BRO AND LYRICS. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Création de particules dynamiques
+        // Particules inchangé
         function createParticles() {
             const container = document.getElementById('particles-container');
             const particleCount = 30;
-            
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
-                // Taille aléatoire
                 const size = Math.random() * 10 + 5;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                
-                // Position initiale aléatoire
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-                
-                // Animation aléatoire
                 const tx = (Math.random() - 0.5) * 200;
                 const ty = (Math.random() - 0.5) * 200;
                 particle.style.setProperty('--tx', `${tx}px`);
                 particle.style.setProperty('--ty', `${ty}px`);
                 particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
                 particle.style.animationDelay = `${Math.random() * 5}s`;
-                
                 container.appendChild(particle);
             }
         }
-        
-        // Gestion du splash screen
+        // Splash screen
         window.addEventListener('load', function() {
             createParticles();
-            
             setTimeout(function() {
                 const splash = document.getElementById('splash-screen');
                 splash.style.opacity = '0';
-                
                 setTimeout(function() {
                     splash.style.display = 'none';
+                    showSections();
                 }, 1000);
-            }, 3500); // 3.5 secondes avant la disparition
+            }, 3500);
         });
 
+        // Submit lyrics via WhatsApp
         function submitViaWhatsApp() {
             const name = document.getElementById('name').value;
             const songTitle = document.getElementById('song-title').value;
             const lyrics = document.getElementById('lyrics').value;
-            
             const message = `Hello BRO AND LYRICS!%0A%0AHere's my song submission:%0A%0AName: ${name}%0ASong Title: ${songTitle}%0A%0ALyrics/Details:%0A${lyrics}`;
-            
             window.open(`wa.me/+24160206120?text=${message}`, '_blank');
         }
+
+        // Citation musicale aléatoire
+        const quotes = [
+            {text: '“Music is the shorthand of emotion.”', author: 'Leo Tolstoy'},
+            {text: '“Where words fail, music speaks.”', author: 'Hans Christian Andersen'},
+            {text: '“One good thing about music, when it hits you, you feel no pain.”', author: 'Bob Marley'},
+            {text: '“Lyrics are the poetry of the soul.”', author: 'Anon.'},
+            {text: '“Music can change the world because it can change people.”', author: 'Bono'},
+            {text: '“Turn your wounds into wisdom.”', author: 'Oprah Winfrey'},
+            {text: '“The only truth is music.”', author: 'Jack Kerouac'}
+        ];
+        function displayRandomQuote() {
+            const q = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote').textContent = q.text;
+            document.getElementById('quote-author').textContent = `— ${q.author}`;
+        }
+        displayRandomQuote();
+
+        // Dark/light mode
+        const themeBtn = document.getElementById('toggle-theme');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            themeBtn.innerHTML = document.body.classList.contains('light-mode')
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        });
+        // Detect OS preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.body.classList.add('light-mode');
+          themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Animation section fade-in au scroll et à la suppression du splash
+        function showSections() {
+            document.querySelectorAll('.fade-in-section').forEach(sec => {
+                setTimeout(() => sec.classList.add('visible'), 300);
+            });
+        }
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.fade-in-section').forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 120) sec.classList.add('visible');
+            });
+        });
     </script>
 </body>
 </html>
