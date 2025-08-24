@@ -1,4 +1,4 @@
-```html name=index.html
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -593,6 +593,10 @@ function revealOnScroll(){
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('DOMContentLoaded', revealOnScroll);
 </script>
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
 </body>
 </html>
-```
