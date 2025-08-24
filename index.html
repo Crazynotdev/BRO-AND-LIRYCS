@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRO AND LYRICS – Lyrics, Style & Communauté</title>
+  <meta name="description" content="BRO AND LYRICS - Plateforme communautaire, lyrics, inspiration, et plus encore.">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="https://api.dicebear.com/7.x/adventurer/svg?seed=BroLyrics" type="image/svg+xml">
+  <style>
+    /* ... styles du splash, glass-card, buttons, parallax, etc ... */
+    /* (Réutilisation des styles précédents, voir message antérieur pour le détail) */
+    #splash-screen{position:fixed;z-index:9999;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0f172a 90%,#111827 100%);transition:opacity 1.2s;overflow:hidden;}
+    .splash-content{display:flex;flex-direction:column;align-items:center;min-width:350px;}
+    .splash-hero{width:170px;height:220px;margin-bottom:2rem;position:relative;}
+    .cv-face{animation:faceFloat 2.5s ease-in-out infinite alternate;transform-origin:50% 60%;}
+    @keyframes faceFloat{0%{transform:translateY(0);}100%{transform:translateY(-15px);}}
+    .cv-glow{filter:blur(12px);opacity:0.26;animation:glowPulse 2.4s infinite alternate;}
+    @keyframes glowPulse{0%{opacity:0.13;}100%{opacity:0.33;}}
+    .splash-title{font-size:2.4rem;font-weight:bold;background:linear-gradient(90deg,#8b5cf6,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px;margin-bottom:1.5rem;text-align:center;line-height:1.1;text-shadow:0 2px 16px #312e8155;}
+    .splash-bars{display:flex;gap:7px;justify-content:center;align-items:end;height:38px;margin-bottom:1.5rem;}
+    .splash-bars span{display:inline-block;width:8px;height:17px;border-radius:8px;background:linear-gradient(180deg,#06b6d4 60%,#8b5cf6 100%);animation:splashBarAnim 1.15s cubic-bezier(.36,1.6,.56,1) infinite alternate;}
+    .splash-bars span:nth-child(2){animation-delay:.07s}
+    .splash-bars span:nth-child(3){animation-delay:.18s;height:29px;}
+    .splash-bars span:nth-child(4){animation-delay:.3s}
+    .splash-bars span:nth-child(5){animation-delay:.39s;height:31px;}
+    .splash-bars span:nth-child(6){animation-delay:.5s}
+    .splash-bars span:nth-child(7){animation-delay:.62s;height:18px;}
+    .splash-bars span:nth-child(8){animation-delay:.76s}
+    @keyframes splashBarAnim {0%{height:16px} 50%{height:38px} 100%{height:16px}}
+    .splash-loading{font-size:1.25rem;color:#bae6fd;font-family:monospace;letter-spacing:0.07em;margin-top:0.7em;}
+    .splash-particle{position:absolute;border-radius:50%;opacity:0.13;pointer-events:none;animation:splashParticleMove 7s linear infinite;}
+    @keyframes splashParticleMove{0%{transform:translateY(0);}100%{transform:translateY(-120px) scale(0.7);}}
+    body.splash-open{overflow:hidden;}
+    /* ... autres styles glass-card, btn-whatsapp, parallax, fadein-up, faq, etc ... */
+    .gradient-text{background:linear-gradient(90deg,#8b5cf6 0%,#06b6d4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .glass-card{background:rgba(15,23,42,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.09);transition:background 0.4s,border 0.4s;}
+    .btn-whatsapp{background:#25d366;transition:all 0.3s,box-shadow 0.3s;box-shadow:0 0 8px 2px #06b6d4aa;}
+    .btn-whatsapp:hover{box-shadow:0 0 18px 6px #8b5cf6cc,0 8px 32px #06b6d4cc;filter:brightness(1.08);transform:scale(1.03) translateY(-2px);}
+    .btn-violet{background:#8b5cf6;color:#fff;}
+    .btn-violet:hover{filter:brightness(1.07);box-shadow:0 0 18px 6px #06b6d4bb;}
+    .parallax-bg{background:linear-gradient(120deg,#0f172a 90%,#06b6d4 110%);background-attachment:fixed;background-size:cover;}
+    .fadein-up{opacity:0;transform:translateY(40px);transition:all 1s;}
+    .fadein-up.visible{opacity:1;transform:none;}
+    #toast{position:fixed;bottom:30px;right:25px;background:#222c3b;color:#bae6fd;border-radius:1em;padding:1em 1.8em;font-size:1.08em;font-weight:500;z-index:99999;box-shadow:0 0 12px #06b6d4bb;opacity:0;pointer-events:none;transition:opacity 0.5s;}
+    #toast.show{opacity:1;pointer-events:auto;}
+    .profile-badge{background:linear-gradient(90deg,#8b5cf6,#06b6d4);color:#fff;padding:5px 16px;border-radius:2em;font-weight:600;font-size:1em;}
+    /* Auth modal */
+    .auth-modal-bg{position:fixed;inset:0;background:rgba(18,18,33,0.79);backdrop-filter:blur(3px);z-index:99999;display:flex;align-items:center;justify-content:center;}
+    .auth-modal{background:rgba(30,41,59,0.98);padding:2em 2em;border-radius:1.5em;max-width:360px;width:90vw;box-shadow:0 0 40px #06b6d488;}
+    .auth-modal input{background:#192136;color:#eee;}
+    /* Contact Dev */
+    #contact-dev{position:fixed;left:20px;bottom:20px;z-index:9999;}
+    .btn-dev{background:linear-gradient(90deg,#06b6d4,#8b5cf6);color:#fff;font-weight:bold;padding:12px 18px;border-radius:2em;display:flex;align-items:center;gap:7px;box-shadow:0 0 12px #8b5cf699;}
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-900">
+
+<!-- Splash Screen -->
+<div id="splash-screen"> ... <!-- Le splash code complet ici, voir messages antérieurs --> ... </div>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Contact Dev (toujours affiché) -->
+<div id="contact-dev">
+  <a href="https://wa.me/24165730123" class="btn-dev" target="_blank" title="Contacter le développeur">
+    <i class="fas fa-user-cog"></i> Dev: +241 657 30 123
+  </a>
+</div>
+
+<!-- Auth Modal (Inscription/Connexion) -->
+<div id="auth-modal" class="auth-modal-bg" style="display:none;">
+  <div class="auth-modal glass-card">
+    <div id="auth-switch">
+      <button onclick="showLogin()" class="btn-violet px-3 py-1 rounded-l-lg">Connexion</button>
+      <button onclick="showRegister()" class="btn-whatsapp px-3 py-1 rounded-r-lg">Inscription</button>
+    </div>
+    <form id="login-form" style="display:block;" onsubmit="event.preventDefault();loginUser();">
+      <h3 class="text-xl font-bold gradient-text mt-4 mb-3">Connexion</h3>
+      <input type="email" id="login-email" class="w-full mb-3 px-3 py-2 rounded" placeholder="Email" required>
+      <input type="password" id="login-password" class="w-full mb-3 px-3 py-2 rounded" placeholder="Mot de passe" required>
+      <button type="submit" class="btn-violet w-full py-2 rounded mt-2">Se connecter</button>
+      <div class="text-xs text-center mt-2"><a href="#" onclick="showRegister()">Créer un compte</a></div>
+    </form>
+    <form id="register-form" style="display:none;" onsubmit="event.preventDefault();registerUser();">
+      <h3 class="text-xl font-bold gradient-text mt-4 mb-3">Inscription</h3>
+      <input type="text" id="register-username" class="w-full mb-3 px-3 py-2 rounded" placeholder="Pseudo" required>
+      <input type="email" id="register-email" class="w-full mb-3 px-3 py-2 rounded" placeholder="Email" required>
+      <input type="password" id="register-password" class="w-full mb-3 px-3 py-2 rounded" placeholder="Mot de passe" required>
+      <button type="submit" class="btn-whatsapp w-full py-2 rounded mt-2">Créer un compte</button>
+      <div class="text-xs text-center mt-2"><a href="#" onclick="showLogin()">Déjà membre ?</a></div>
+    </form>
+    <button onclick="closeAuthModal()" class="text-gray-400 mt-4 underline text-xs block mx-auto">Fermer</button>
+  </div>
+</div>
+<script>
+function showLogin(){ document.getElementById('login-form').style.display='block';document.getElementById('register-form').style.display='none';}
+function showRegister(){ document.getElementById('login-form').style.display='none';document.getElementById('register-form').style.display='block';}
+function openAuthModal(){document.getElementById('auth-modal').style.display='flex';}
+function closeAuthModal(){document.getElementById('auth-modal').style.display='none';}
+function loginUser(){
+  // À BRANCHER sur ton backend
+  showToast("Connexion réussie ! (démo)");
+  closeAuthModal();
+  // setUserInLocalStorage etc.
+}
+function registerUser(){
+  // À BRANCHER sur ton backend
+  showToast("Compte créé ! (démo)");
+  closeAuthModal();
+  // setUserInLocalStorage etc.
+}
+</script>
+
+<!-- Navbar -->
+<nav class="glass-card py-4 px-6 fixed w-full z-50" style="backdrop-filter: blur(18px);">
+  <div class="container mx-auto flex justify-between items-center">
+    <span class="text-2xl font-bold gradient-text">BRO AND LYRICS</span>
+    <div class="hidden md:flex space-x-6">
+      <a href="#inspiration" class="hover:text-cyan-400 transition">Inspiration</a>
+      <a href="#mur-lyrics" class="hover:text-cyan-400 transition">Mur Lyrics</a>
+      <a href="#dashboard" class="hover:text-cyan-400 transition">Dashboard</a>
+      <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+    </div>
+    <div>
+      <button onclick="openAuthModal()" class="btn-violet px-4 py-2 rounded-full font-bold">Connexion</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="pt-32 pb-20 px-6 text-center">
+  <div class="container mx-auto max-w-4xl">
+    <h1 class="text-5xl md:text-6xl font-bold mb-3 gradient-text">BRO AND LYRICS</h1>
+    <span class="profile-badge">by David Tech Inc</span>
+    <p class="text-xl md:text-2xl text-gray-300 mt-4">Lyrics, style, créativité & projets musicaux.</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mt-7">
+      <a href="#dashboard" class="btn-whatsapp text-white px-8 py-3 rounded-full font-semibold text-lg">Dashboard</a>
+      <a href="#inspiration" class="btn-violet text-white px-8 py-3 rounded-full font-semibold text-lg">Inspiration Lyrics</a>
+    </div>
+  </div>
+</header>
+
+<!-- Inspiration Générateurs -->
+<section id="inspiration" class="py-12 px-6">
+  <div class="container mx-auto max-w-2xl fadein-up">
+    <div class="glass-card p-6 rounded-2xl my-6 text-center">
+      <h3 class="text-xl font-bold gradient-text mb-3">Générateur de Punchlines</h3>
+      <button class="btn-whatsapp px-5 py-2 rounded-full text-white font-bold" onclick="generatePunchline()">Inspire-moi !</button>
+      <div id="punchline-result" class="mt-3 text-lg text-cyan-300 min-h-[2.5em]"></div>
+    </div>
+    <div class="glass-card p-6 rounded-2xl my-6 text-center">
+      <h3 class="text-lg font-semibold mb-3 gradient-text">Générateur de thèmes</h3>
+      <button class="btn-violet px-5 py-2 rounded-full text-white font-bold" onclick="generateTheme()">Un thème SVP !</button>
+      <div id="theme-result" class="mt-3 text-lg text-purple-200 min-h-[2.5em]"></div>
+    </div>
+  </div>
+</section>
+<script>
+function generatePunchline() {
+  const punchlines = [
+    "J'écris des vers qui traversent le temps.",
+    "Ma rime, c'est la pluie qui arrose ton désert.",
+    "Sur la prod', je plane comme un oiseau rare.",
+    "Ton flow s'éteint, le mien rallume la scène.",
+    "La nuit m’inspire des rimes lunaires.",
+    "Chaque texte, un voyage sans retour.",
+    "L’instru me parle, j’réponds avec des lyrics.",
+    "Mes lyrics font vibrer les murs du studio."
+  ];
+  document.getElementById('punchline-result').textContent = punchlines[Math.floor(Math.random()*punchlines.length)];
+}
+function generateTheme() {
+  const themes = [
+    "Le feu de l’amour impossible","La persévérance dans l’échec",
+    "L’espoir dans la tempête","L’ambiance d’une block party",
+    "La double vie d’un artiste","La paix intérieure"
+  ];
+  document.getElementById('theme-result').textContent = themes[Math.floor(Math.random()*themes.length)];
+}
+</script>
+
+<!-- Section Dashboard (User Area) -->
+<section id="dashboard" class="py-20 px-6 parallax-bg">
+  <div class="container mx-auto max-w-5xl">
+    <div class="glass-card p-8 rounded-2xl mb-8 fadein-up">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-2xl font-bold gradient-text">Mon Espace</h2>
+          <div class="text-xs text-gray-400 mb-1">Bienvenue, <span id="dashboard-username">Invité</span></div>
+        </div>
+        <button onclick="logoutUser()" class="btn-whatsapp px-4 py-1 rounded-full font-semibold text-sm">Déconnexion</button>
+      </div>
+      <!-- Compteur, badges, etc -->
+      <div class="flex gap-6 flex-wrap mb-6">
+        <div class="glass-card p-4 rounded-lg text-center flex-1">
+          <div class="text-3xl font-bold text-cyan-300" id="stat-lyrics">3</div>
+          <div class="text-xs text-gray-400">Lyrics postés</div>
+        </div>
+        <div class="glass-card p-4 rounded-lg text-center flex-1">
+          <div class="text-2xl font-bold text-purple-300">2</div>
+          <div class="text-xs text-gray-400">Likes reçus</div>
+        </div>
+        <div class="glass-card p-4 rounded-lg text-center flex-1">
+          <div class="text-xl font-bold text-amber-400">Bronze</div>
+          <div class="text-xs text-gray-400">Badge niveau</div>
+        </div>
+      </div>
+      <!-- Liste lyrics user -->
+      <h3 class="gradient-text font-semibold mb-2">Mes Lyrics</h3>
+      <ul class="space-y-2" id="my-lyrics-list">
+        <li class="glass-card p-3 rounded flex items-center justify-between">
+          <span class="text-cyan-100">Jour de pluie</span>
+          <span class="text-xs text-emerald-500">Publié</span>
+        </li>
+        <li class="glass-card p-3 rounded flex items-center justify-between">
+          <span class="text-cyan-100">Espoir brisé</span>
+          <span class="text-xs text-amber-500">En attente</span>
+        </li>
+        <li class="glass-card p-3 rounded flex items-center justify-between">
+          <span class="text-cyan-100">Nuit blanche</span>
+          <span class="text-xs text-emerald-500">Publié</span>
+        </li>
+      </ul>
+      <div class="mt-7">
+        <button onclick="document.getElementById('submit-form-modal').style.display='flex';" class="btn-violet px-6 py-2 rounded-full font-bold">Ajouter un lyric</button>
+      </div>
+    </div>
+    <!-- Leaderboard -->
+    <div class="glass-card p-6 rounded-2xl mb-8 fadein-up">
+      <h3 class="gradient-text font-bold mb-4">Top Lyrics / Classement</h3>
+      <ol class="list-decimal list-inside space-y-1">
+        <li class="text-cyan-200 font-semibold">@FlowMaster <span class="text-xs text-gray-400">- 120 pts</span></li>
+        <li class="text-purple-300 font-semibold">@JustineRimes <span class="text-xs text-gray-400">- 110 pts</span></li>
+        <li class="text-amber-300 font-semibold">@LyricalLion <span class="text-xs text-gray-400">- 80 pts</span></li>
+      </ol>
+    </div>
+    <!-- Challenges -->
+    <div class="glass-card p-6 rounded-2xl fadein-up">
+      <h3 class="gradient-text font-bold mb-4">Défis d’écriture</h3>
+      <ul class="space-y-2">
+        <li>🔥 <span class="font-semibold">Thème du mois :</span> “La renaissance”</li>
+        <li>📅 <span class="font-semibold">Concours Rap Flash</span> – jusqu’au 30/09/2025</li>
+      </ul>
+      <button class="btn-whatsapp px-5 py-2 rounded-full mt-4">Participer</button>
+    </div>
+  </div>
+</section>
+<script>
+function logoutUser(){
+  showToast("Déconnexion !");
+  // remove user from localStorage etc.
+}
+</script>
+<!-- Modal submit lyric -->
+<div id="submit-form-modal" class="auth-modal-bg" style="display:none;">
+  <div class="auth-modal glass-card">
+    <form onsubmit="event.preventDefault();showToast('Lyric envoyé (démo) !');document.getElementById('submit-form-modal').style.display='none';">
+      <h3 class="gradient-text font-bold text-lg mb-3">Ajouter un lyric</h3>
+      <input type="text" class="w-full mb-3 px-3 py-2 rounded" placeholder="Titre du lyric" required>
+      <textarea class="w-full mb-3 px-3 py-2 rounded" placeholder="Contenu (paroles...)" rows="5" required></textarea>
+      <input type="file" class="w-full mb-3 px-3 py-2 rounded" accept="audio/*">
+      <button class="btn-whatsapp w-full py-2 rounded mt-2">Envoyer</button>
+      <button type="button" onclick="document.getElementById('submit-form-modal').style.display='none';" class="text-gray-400 mt-2 underline text-xs block mx-auto">Annuler</button>
+    </form>
+  </div>
+</div>
+
+<!-- Section Mur Lyrics communautaire (dynamique, à brancher sur API) -->
+<section id="mur-lyrics" class="py-20 px-6 bg-slate-900/60">
+  <div class="container mx-auto max-w-5xl fadein-up">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">Mur des Lyrics</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Exemples, à rendre dynamiques -->
+      <div class="glass-card p-5 rounded-xl">
+        <p class="italic text-lg text-cyan-200">"La nuit m’inspire des rimes lunaires."</p>
+        <p class="text-xs text-gray-400 mt-2">— @FlowMaster</p>
+        <div class="flex items-center gap-3 mt-2">
+          <button class="btn-violet px-3 py-1 rounded-full text-xs"><i class="fas fa-thumbs-up"></i> 23</button>
+          <button class="btn-whatsapp px-2 py-1 rounded-full text-xs"><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+      <div class="glass-card p-5 rounded-xl">
+        <p class="italic text-lg text-cyan-200">"Ma plume éclaire le bitume, même sans lune."</p>
+        <p class="text-xs text-gray-400 mt-2">— @JustineRimes</p>
+        <div class="flex items-center gap-3 mt-2">
+          <button class="btn-violet px-3 py-1 rounded-full text-xs"><i class="fas fa-thumbs-up"></i> 14</button>
+          <button class="btn-whatsapp px-2 py-1 rounded-full text-xs"><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+      <div class="glass-card p-5 rounded-xl">
+        <p class="italic text-lg text-cyan-200">"Sur la prod je trace, sans jamais faire marche arrière."</p>
+        <p class="text-xs text-gray-400 mt-2">— @LyricalLion</p>
+        <div class="flex items-center gap-3 mt-2">
+          <button class="btn-violet px-3 py-1 rounded-full text-xs"><i class="fas fa-thumbs-up"></i> 32</button>
+          <button class="btn-whatsapp px-2 py-1 rounded-full text-xs"><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <button onclick="openAuthModal()" class="btn-whatsapp px-6 py-2 rounded-full text-white font-semibold">Publier sur le mur !</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 px-6 bg-slate-900">
+  <div class="container mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-6 md:mb-0">
+        <span class="text-2xl font-bold gradient-text">BRO AND LYRICS</span>
+        <p class="text-gray-400 mt-2">Bringing musical visions to life through words.<br>
+        <span style="font-size:0.95em;color:#8b5cf6;">by David Tech Inc</span>
+        </p>
+      </div>
+      <div class="flex space-x-6">
+        <a href="https://www.instagram.com/broandlyrics" class="text-gray-400 hover:text-cyan-400 text-xl"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@lyrics.dealers" class="text-gray-400 hover:text-cyan-400 text-xl"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/24160206120" class="text-gray-400 hover:text-cyan-400 text-xl"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:contact@broandlyrics.com" class="text-gray-400 hover:text-cyan-400 text-xl"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-8 pt-8 text-center text-gray-500">
+      <p>© 2025 BRO AND LYRICS. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script>
+function showToast(msg){
+  const toast=document.getElementById('toast');
+  toast.textContent=msg;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'), 3300);
+}
+// Apparition au scroll
+function revealOnScroll(){
+  document.querySelectorAll('.fadein-up').forEach((el)=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
+</script>
+<div id="toast"></div>
+</body>
+</html>
