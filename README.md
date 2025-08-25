@@ -28,5 +28,5 @@ Pensée pour être rapide, responsive et intuitive, elle offre une expérience f
 
 ### 1️⃣ Cloner le repo
 ```bash
-git clone https://github.com/ton-utilisateur/ton-repo.git
+git clone https://github.com/Crazynotdev/BRO-AND-LYRICS.git
 cd ton-repo
