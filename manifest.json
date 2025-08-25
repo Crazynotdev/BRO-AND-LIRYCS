@@ -3,12 +3,12 @@
   "short_name": "BROLYRICS",
   "icons": [
     {
-      "src": "icon-lyric.png",
+      "src": "icon-lyric.JPG",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-lyric.png",
+      "src": "icon-lyric.JPG",
       "sizes": "512x512",
       "type": "image/png"
     }
